@@ -37,7 +37,9 @@ export default function Contact({ t }: { t: Dict }) {
             <span className="text-coral">{c.titleAccent}</span>
             {c.titlePost}
           </h2>
-          <p className="mt-6 max-w-xl text-balance text-lg leading-relaxed text-white/65">{c.text}</p>
+          {c.text && (
+            <p className="mt-6 max-w-xl text-balance text-lg leading-relaxed text-white/65">{c.text}</p>
+          )}
           <Button href={mailto(c.subject)} size="lg" className="group mt-10 px-8">
             {c.cta}
             <svg

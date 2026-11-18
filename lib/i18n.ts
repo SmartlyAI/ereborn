@@ -73,13 +73,17 @@ const en = {
     titleAccent: "Reborn",
     titlePost: " Your Data?",
     eyebrow: "Contact",
+    // Optionnel : la version française n'a pas de paragraphe sous le titre
     text: "Let's talk about what EREBORN can do with your transaction data.",
     cta: "Get in Touch",
     subject: "Get in touch",
   },
 };
 
-export type Dict = typeof en;
+type Base = typeof en;
+export type Dict = Omit<Base, "contact"> & {
+  contact: Omit<Base["contact"], "text"> & { text?: string };
+};
 
 const fr: Dict = {
   lang: "fr",
